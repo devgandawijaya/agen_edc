@@ -35,6 +35,7 @@ func NewGormDB(cfg *Config) *gorm.DB {
 		&models.BankInfo{},
 		&models.Signature{},
 		&models.AuditLog{},
+		&models.User{},
 	); err != nil {
 		log.Printf("auto migrate warning: %v", err)
 	}
