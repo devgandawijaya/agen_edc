@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: goapp
+      POSTGRES_PASSWORD: secretpass
+      POSTGRES_DB: goapp
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - agen-net
+
+  app:
+    build: .
+    depends_on:
+      - postgres
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USER=goapp
+      - DB_PASSWORD=secretpass
+      - DB_NAME=goapp
+      - DB_SSLMODE=disable
+      - PORT=2021
+    ports:
+      - "2021:2021"   # host:container -> akses aplikasi via localhost:2021
+    networks:
+      - agen-net
+    # restart: always   # optional in dev
+
+volumes:
+  pgdata:
+
+networks:
+  agen-net:
+    driver: bridge

@@ -1,0 +1,1404 @@
+{
+  "info": {
+    "name": "Agen EDC API Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:2021",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Agents",
+      "item": [
+        {
+          "name": "Create Agent",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"John Doe\", \"email\": \"john@example.com\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/agents",
+              "host": ["{{base_url}}"],
+              "path": ["api", "agents"]
+            }
+          }
+        },
+        {
+          "name": "Get Agent by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/agents/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "agents", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Full Agent by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/agents/:id/full",
+              "host": ["{{base_url}}"],
+              "path": ["api", "agents", ":id", "full"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Search Agents",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/agents",
+              "host": ["{{base_url}}"],
+              "path": ["api", "agents"]
+            }
+          }
+        },
+        {
+          "name": "Update Agent",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Jane Doe\", \"email\": \"jane@example.com\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/agents/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "agents", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Agent",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/agents/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "agents", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Upload Documents for Agent",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/agents/:id/documents",
+              "host": ["{{base_url}}"],
+              "path": ["api", "agents", ":id", "documents"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+
+    {
+
+      "name": "Users",
+
+      "item": [
+
+        {
+
+          "name": "Register User",
+
+          "request": {
+
+            "method": "POST",
+
+            "header": [
+
+              {
+
+                "key": "Content-Type",
+
+                "value": "application/json"
+
+              }
+
+            ],
+
+            "body": {
+
+              "mode": "raw",
+
+              "raw": "{\"username\": \"testuser\", \"email\": \"test@example.com\", \"password\": \"password123\", \"role\": \"user\"}"
+
+            },
+
+            "url": {
+
+              "raw": "{{base_url}}/api/users/register",
+
+              "host": ["{{base_url}}"],
+
+              "path": ["api", "users", "register"]
+
+            },
+
+            "description": "curl -X POST {{base_url}}/api/users/register -H \"Content-Type: application/json\" -d '{\"username\": \"testuser\", \"email\": \"test@example.com\", \"password\": \"password123\", \"role\": \"user\"}'"
+
+          }
+
+        },
+
+        {
+
+          "name": "Login User",
+
+          "request": {
+
+            "method": "POST",
+
+            "header": [
+
+              {
+
+                "key": "Content-Type",
+
+                "value": "application/json"
+
+              }
+
+            ],
+
+            "body": {
+
+              "mode": "raw",
+
+              "raw": "{\"email\": \"test@example.com\", \"password\": \"password123\"}"
+
+            },
+
+            "url": {
+
+              "raw": "{{base_url}}/api/users/login",
+
+              "host": ["{{base_url}}"],
+
+              "path": ["api", "users", "login"]
+
+            }
+
+          }
+
+        },
+
+        {
+
+          "name": "Forgot Password",
+
+          "request": {
+
+            "method": "POST",
+
+            "header": [
+
+              {
+
+                "key": "Content-Type",
+
+                "value": "application/json"
+
+              }
+
+            ],
+
+            "body": {
+
+              "mode": "raw",
+
+              "raw": "{\"email\": \"test@example.com\"}"
+
+            },
+
+            "url": {
+
+              "raw": "{{base_url}}/api/users/forgot-password",
+
+              "host": ["{{base_url}}"],
+
+              "path": ["api", "users", "forgot-password"]
+
+            }
+
+          }
+
+        },
+
+        {
+
+          "name": "Reset Password",
+
+          "request": {
+
+            "method": "POST",
+
+            "header": [
+
+              {
+
+                "key": "Content-Type",
+
+                "value": "application/json"
+
+              }
+
+            ],
+
+            "body": {
+
+              "mode": "raw",
+
+              "raw": "{\"token\": \"reset_token_here\", \"password\": \"newpassword123\"}"
+
+            },
+
+            "url": {
+
+              "raw": "{{base_url}}/api/users/reset-password",
+
+              "host": ["{{base_url}}"],
+
+              "path": ["api", "users", "reset-password"]
+
+            }
+
+          }
+
+        },
+
+        {
+
+          "name": "Get Users",
+
+          "request": {
+
+            "method": "GET",
+
+            "header": [],
+
+            "url": {
+
+              "raw": "{{base_url}}/api/users?limit=10&offset=0",
+
+              "host": ["{{base_url}}"],
+
+              "path": ["api", "users"],
+
+              "query": [
+
+                {
+
+                  "key": "limit",
+
+                  "value": "10"
+
+                },
+
+                {
+
+                  "key": "offset",
+
+                  "value": "0"
+
+                }
+
+              ]
+
+            }
+
+          }
+
+        },
+
+        {
+
+          "name": "Search Users",
+
+          "request": {
+
+            "method": "GET",
+
+            "header": [],
+
+            "url": {
+
+              "raw": "{{base_url}}/api/users/search?q=test&limit=10&offset=0",
+
+              "host": ["{{base_url}}"],
+
+              "path": ["api", "users", "search"],
+
+              "query": [
+
+                {
+
+                  "key": "q",
+
+                  "value": "test"
+
+                },
+
+                {
+
+                  "key": "limit",
+
+                  "value": "10"
+
+                },
+
+                {
+
+                  "key": "offset",
+
+                  "value": "0"
+
+                }
+
+              ]
+
+            }
+
+          }
+
+        },
+
+        {
+
+          "name": "Get User by ID",
+
+          "request": {
+
+            "method": "GET",
+
+            "header": [],
+
+            "url": {
+
+              "raw": "{{base_url}}/api/users/:id",
+
+              "host": ["{{base_url}}"],
+
+              "path": ["api", "users", ":id"],
+
+              "variable": [
+
+                {
+
+                  "key": "id",
+
+                  "value": "1"
+
+                }
+
+              ]
+
+            }
+
+          }
+
+        },
+
+        {
+
+          "name": "Update User",
+
+          "request": {
+
+            "method": "PUT",
+
+            "header": [
+
+              {
+
+                "key": "Content-Type",
+
+                "value": "application/json"
+
+              }
+
+            ],
+
+            "body": {
+
+              "mode": "raw",
+
+              "raw": "{\"username\": \"updateduser\", \"email\": \"updated@example.com\", \"role\": \"admin\"}"
+
+            },
+
+            "url": {
+
+              "raw": "{{base_url}}/api/users/:id",
+
+              "host": ["{{base_url}}"],
+
+              "path": ["api", "users", ":id"],
+
+              "variable": [
+
+                {
+
+                  "key": "id",
+
+                  "value": "1"
+
+                }
+
+              ]
+
+            }
+
+          }
+
+        },
+
+        {
+
+          "name": "Delete User",
+
+          "request": {
+
+            "method": "DELETE",
+
+            "header": [],
+
+            "url": {
+
+              "raw": "{{base_url}}/api/users/:id",
+
+              "host": ["{{base_url}}"],
+
+              "path": ["api", "users", ":id"],
+
+              "variable": [
+
+                {
+
+                  "key": "id",
+
+                  "value": "1"
+
+                }
+
+              ]
+
+            }
+
+          }
+
+        }
+
+      ]
+
+    },
+
+    {
+
+      "name": "Acquisitions",
+      "item": [
+        {
+          "name": "Create Acquisition",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"agent_id\": 1, \"details\": \"Sample acquisition\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/acquisitions",
+              "host": ["{{base_url}}"],
+              "path": ["api", "acquisitions"]
+            }
+          }
+        },
+        {
+          "name": "Get Acquisition by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/acquisitions/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "acquisitions", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Acquisitions by Agent ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/acquisitions/agent/:agent_id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "acquisitions", "agent", ":agent_id"],
+              "variable": [
+                {
+                  "key": "agent_id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Acquisition",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"agent_id\": 1, \"details\": \"Updated acquisition\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/acquisitions/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "acquisitions", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Acquisition",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/acquisitions/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "acquisitions", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Acquisitions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/acquisitions",
+              "host": ["{{base_url}}"],
+              "path": ["api", "acquisitions"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Owners",
+      "item": [
+        {
+          "name": "Create Owner",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"agent_id\": 1, \"name\": \"Owner Name\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/owners",
+              "host": ["{{base_url}}"],
+              "path": ["api", "owners"]
+            }
+          }
+        },
+        {
+          "name": "Get Owner by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/owners/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "owners", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Owners by Agent ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/owners/agent/:agent_id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "owners", "agent", ":agent_id"],
+              "variable": [
+                {
+                  "key": "agent_id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Owner",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"agent_id\": 1, \"name\": \"Updated Owner\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/owners/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "owners", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Owner",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/owners/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "owners", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Owners",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/owners",
+              "host": ["{{base_url}}"],
+              "path": ["api", "owners"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Business Profiles",
+      "item": [
+        {
+          "name": "Create Business Profile",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"agent_id\": 1, \"business_name\": \"Sample Business\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/business_profiles",
+              "host": ["{{base_url}}"],
+              "path": ["api", "business_profiles"]
+            }
+          }
+        },
+        {
+          "name": "Get Business Profile by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/business_profiles/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "business_profiles", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Business Profiles by Agent ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/business_profiles/agent/:agent_id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "business_profiles", "agent", ":agent_id"],
+              "variable": [
+                {
+                  "key": "agent_id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Business Profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"agent_id\": 1, \"business_name\": \"Updated Business\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/business_profiles/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "business_profiles", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Business Profile",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/business_profiles/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "business_profiles", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Business Profiles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/business_profiles",
+              "host": ["{{base_url}}"],
+              "path": ["api", "business_profiles"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Uploaded Documents",
+      "item": [
+        {
+          "name": "Create Uploaded Document",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"agent_id\": 1, \"document_name\": \"Sample Doc\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/uploaded_documents",
+              "host": ["{{base_url}}"],
+              "path": ["api", "uploaded_documents"]
+            }
+          }
+        },
+        {
+          "name": "Get Uploaded Document by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/uploaded_documents/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "uploaded_documents", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Uploaded Documents by Agent ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/uploaded_documents/agent/:agent_id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "uploaded_documents", "agent", ":agent_id"],
+              "variable": [
+                {
+                  "key": "agent_id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Uploaded Document",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"agent_id\": 1, \"document_name\": \"Updated Doc\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/uploaded_documents/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "uploaded_documents", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Uploaded Document",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/uploaded_documents/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "uploaded_documents", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Uploaded Documents",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/uploaded_documents",
+              "host": ["{{base_url}}"],
+              "path": ["api", "uploaded_documents"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Bank Infos",
+      "item": [
+        {
+          "name": "Create Bank Info",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"agent_id\": 1, \"bank_name\": \"Sample Bank\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/bank_infos",
+              "host": ["{{base_url}}"],
+              "path": ["api", "bank_infos"]
+            }
+          }
+        },
+        {
+          "name": "Get Bank Info by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/bank_infos/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "bank_infos", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Bank Infos by Agent ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/bank_infos/agent/:agent_id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "bank_infos", "agent", ":agent_id"],
+              "variable": [
+                {
+                  "key": "agent_id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Bank Info",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"agent_id\": 1, \"bank_name\": \"Updated Bank\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/bank_infos/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "bank_infos", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Bank Info",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/bank_infos/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "bank_infos", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Bank Infos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/bank_infos",
+              "host": ["{{base_url}}"],
+              "path": ["api", "bank_infos"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Signatures",
+      "item": [
+        {
+          "name": "Create Signature",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"agent_id\": 1, \"signature_data\": \"Sample Signature\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/signatures",
+              "host": ["{{base_url}}"],
+              "path": ["api", "signatures"]
+            }
+          }
+        },
+        {
+          "name": "Get Signature by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/signatures/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "signatures", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Signatures by Agent ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/signatures/agent/:agent_id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "signatures", "agent", ":agent_id"],
+              "variable": [
+                {
+                  "key": "agent_id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Signature",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"agent_id\": 1, \"signature_data\": \"Updated Signature\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/signatures/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "signatures", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Signature",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/signatures/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "signatures", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Signatures",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/signatures",
+              "host": ["{{base_url}}"],
+              "path": ["api", "signatures"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Audit Logs",
+      "item": [
+        {
+          "name": "Create Audit Log",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"agent_id\": 1, \"action\": \"Sample Action\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/audit_logs",
+              "host": ["{{base_url}}"],
+              "path": ["api", "audit_logs"]
+            }
+          }
+        },
+        {
+          "name": "Get Audit Log by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/audit_logs/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "audit_logs", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Audit Logs by Agent ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/audit_logs/agent/:agent_id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "audit_logs", "agent", ":agent_id"],
+              "variable": [
+                {
+                  "key": "agent_id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Audit Log",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"agent_id\": 1, \"action\": \"Updated Action\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/audit_logs/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "audit_logs", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Audit Log",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/audit_logs/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "audit_logs", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Audit Logs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/audit_logs",
+              "host": ["{{base_url}}"],
+              "path": ["api", "audit_logs"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
